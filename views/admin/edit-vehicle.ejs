@@ -1,0 +1,201 @@
+<%- include('./partials/header') %>
+<!-- ==================================================== -->
+<!-- Start right Content here -->
+<!-- ==================================================== -->
+<div class="page-content">
+
+  <!-- Start Container Fluid -->
+  <div class="container-xxl">
+
+    <div class="row">
+      <div class="col-12">
+        <form action="/demo-custom/car-project/api/vehicle/edit" method="POST">
+          <input type="hidden" name="id" value="<%= product._id %>" />
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Add Product Photo</h4>
+            </div>
+            <div class="card-body">
+              <div class="dropzone">
+                <div class="fallback">
+                  <input class="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp" />
+                  <input type="hidden" name="image" class="image-url" value="<%- product.image %>" />
+                </div>
+                <div class="dz-message needsclick">
+                  <i class="bx bx-cloud-upload fs-48 text-primary"></i>
+                  <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>
+                  <span class="text-muted fs-13">
+                    1600 x 1200 (4:3) recommended. PNG, JPG and WEBP files are allowed
+                  </span>
+                </div>
+                <div class="row g-4 upload-preview">
+                  <% if (product.image) { %>
+                  <div class="col-12 col-lg-4"><img class="img-fluid" src="/demo-custom/car-project<%- product.image %>" /></div>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Product Information</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Product Title</label>
+                    <input type="text" id="product-name" class="form-control" name="title" placeholder="Items Name" value="<%= product.title %>">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label for="product-categories" class="form-label">Product Categories</label>
+                  <select required class="form-control" id="product-categories" data-choices data-choices-groups data-placeholder="Select Categories" name="categories">
+                    <option value="">Select Categories</option>
+                    <% categories.forEach(category => { %>
+                    <option value="<%= category._id %>" <%= product.categories?._id.toString() == category._id.toString() ? 'selected' : '' %>><%- category.title %></option>
+                    <% }) %>
+                  </select>
+                </div>
+              </div>
+              <div class="row g-4 position-relative dynamic-fields mb-3">
+                <button class="add-more-btn">
+                  <iconify-icon icon="material-symbols:add"></iconify-icon>
+                </button>
+                <div class="col-lg-4">
+                  <label for="product-price" class="form-label">Make/Model</label>
+                  <div>
+                    <% product.model.forEach((model, index) => { %>
+                    <% if (index > 0) { %>
+                    <div class="field-item">
+                      <button onclick="removeFields(this)" class="remove-btn">
+                        <iconify-icon icon="material-symbols:remove"></iconify-icon>
+                      </button>
+                      <input name="model" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= model %>">
+                    </div>
+                    <% } else { %>
+                    <input name="model" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= model %>">
+                    <% } %>
+                    <% }) %>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <label for="product-tax" class="form-label">Item #</label>
+                  <div>
+                    <% product.itemNo.forEach((itemNo, index) => { %>
+                    <% if (index > 0) { %>
+                    <div class="field-item">
+                      <input name="itemNo" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= itemNo %>">
+                    </div>
+                    <% } else { %>
+                    <input name="itemNo" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= itemNo %>">
+                    <% } %>
+                    <% }) %>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <label for="product-stock" class="form-label">OEM/Competitor Interchange Part Numbers</label>
+                  <div>
+                    <% product.oem.forEach((oem, index) => { %>
+                    <% if (index > 0) { %>
+                    <div class="field-item">
+                      <input name="oem" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= oem %>">
+                    </div>
+                    <% } else { %>
+                    <input name="oem" type="text" class="form-control" placeholder="eg. (00-0000-0000)" value="<%= oem %>">
+                    <% } %>
+                    <% }) %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control bg-light-subtle" id="description" rows="7" placeholder="Short description about the product"><%= product.description %></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Pricing Details</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label for="product-price" class="form-label">Price</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
+                    <input name="price" type="number" id="product-price" class="form-control" placeholder="000" value="<%= product.price %>" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <label for="product-tax" class="form-label">Tax (%)</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text fs-20"><i class='bx bxs-file-txt'></i></span>
+                    <input name="tax" type="number" id="product-tax" class="form-control" placeholder="0.00%" value="<%= product.tax %>">
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="mb-3">
+                    <label for="product-stock" class="form-label">Stock</label>
+                    <input name="stock" type="number" id="product-stock" class="form-control" placeholder="Quantity" value="<%= product.stock %>">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 bg-light mb-3 rounded">
+            <div class="row justify-content-end g-2">
+              <div class="col-lg-2">
+                <button type="submit" class="btn btn-outline-secondary w-100">Update Product</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Container Fluid -->
+</div>
+<!-- ==================================================== -->
+<!-- End Page Content -->
+<!-- ==================================================== -->
+
+<%- include('./partials/footer') %>
+<script>
+  $(".add-more-btn").click(function() {
+    let fieldName = []
+    $(this).parents('.dynamic-fields').find('[name]').each((ind, elem) => {
+      if (!fieldName.includes($(elem).attr('name'))) {
+        fieldName.push($(elem).attr('name'))
+        const field = $(elem).clone();
+        const fieldWrap = document.createElement('div');
+        $(fieldWrap).addClass('field-item');
+        field.val('').appendTo($(fieldWrap));
+        field.addClass('mt-2')
+        $(fieldWrap).appendTo($(elem).parent());
+        if (ind === 0) {
+          $(fieldWrap).append('<button onclick="removeFields(this)" class="remove-btn"><iconify-icon icon="material-symbols:remove"></iconify-icon></button>')
+        }
+      }
+    })
+  })
+  const removeFields = (elem) => {
+    const index = $(elem).parent().index()
+    $(elem).parents('.dynamic-fields').find('.col-lg-4').each((ind, col) => {
+      $(col).find('.field-item').each((ind, item) => {
+        if (ind === (index - 1)) {
+          $(item).remove()
+        }
+      })
+    })
+  }
+</script>
+<script>
+  $("#product-categories").val('<%- JSON.stringify(product.categories?._id.toString()) %>');
+  $("#product-categories")[0].dispatchEvent(new Event('change'));
+</script>

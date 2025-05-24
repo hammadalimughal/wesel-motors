@@ -1,0 +1,196 @@
+<%- include('./partials/header') %>
+<!-- ==================================================== -->
+<!-- Start right Content here -->
+<!-- ==================================================== -->
+<div class="page-content">
+
+  <!-- Start Container Fluid -->
+  <div class="container-xxl">
+
+    <div class="row">
+      <div class="col-12">
+        <form action="/demo-custom/car-project/api/vehicle/create" method="POST">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Add Vehicle Thumbnail</h4>
+            </div>
+            <div class="card-body">
+              <div class="dropzone">
+                <div class="fallback">
+                  <input class="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp" required />
+                  <input type="hidden" name="thumbnail" class="image-url" />
+                </div>
+                <div class="dz-message needsclick">
+                  <i class="bx bx-cloud-upload fs-48 text-primary"></i>
+                  <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>
+                  <span class="text-muted fs-13">
+                    1600 x 1200 (4:3) recommended. PNG, JPG and WEBP files are allowed
+                  </span>
+                </div>
+                <div class="row g-4 upload-preview"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Add Vehicle Photo</h4>
+            </div>
+            <div class="card-body">
+              <div class="dropzone">
+                <div class="fallback">
+                  <input class="image-upload" type="file" accept=".jpg,.jpeg,.png,.webp" multiple />
+                  <input type="hidden" name="images" class="image-url" />
+                </div>
+                <div class="dz-message needsclick">
+                  <i class="bx bx-cloud-upload fs-48 text-primary"></i>
+                  <h3 class="mt-4">Drop your images here, or <span class="text-primary">click to browse</span></h3>
+                  <span class="text-muted fs-13">
+                    1600 x 1200 (4:3) recommended. PNG, JPG and WEBP files are allowed
+                  </span>
+                </div>
+                <div class="row g-4 upload-preview"></div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Vehicle Information</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Vehicle Title</label>
+                    <input type="text" id="product-name" class="form-control" name="title" placeholder="Items Name">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <label for="product-categories" class="form-label">Vehicle Categories</label>
+                  <select class="form-control" id="product-categories" data-choices data-choices-groups data-placeholder="Select Categories" name="categories">
+                    <% categories.forEach(category => { %>
+                    <option value="<%= category._id %>"><%= category.title %></option>
+                    <% }) %>
+                  </select>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Registration Date</label>
+                    <input type="text" class="registration-date form-control" name="registrationDate" placeholder="Registration Date">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Fuel Type</label>
+                    <select name="fuelType" id="fuelType" data-choices class="form-control">
+                      <option value="">Select Fuel Type</option>
+                      <option value="petrol">Petrol</option>
+                      <option value="diesel">Diesel</option>
+                      <option value="electric">Electric</option>
+                      <option value="hybrid">Hybrid</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Vehicle Model</label>
+                    <input type="text" id="product-name" class="form-control" name="model" placeholder="Vehicle Model">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Vehicle Manufacturer</label>
+                    <input type="text" id="product-name" class="form-control" name="manufacturer" placeholder="Vehicle Manufacturer">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Range (in miles)</label>
+                    <input type="text" id="product-name" class="form-control" name="range" placeholder="Vehicle Range">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Gearbox</label>
+                    <select name="gearbox" id="gearbox" class="form-control" data-choices>
+                      <option value="manual">Manual</option>
+                      <option value="automatic">Automatic</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="product-name" class="form-label">Seats</label>
+                    <input type="number" id="product-name" class="form-control" name="seats" placeholder="Number of Seats">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Service History</label>
+                    <input type="text" class="form-control" name="serviceHistory" placeholder="Service History">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Body Type</label>
+                    <input type="text" class="form-control" name="bodyType" placeholder="Body Type">
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control bg-light-subtle" id="description" rows="7" placeholder="Short description about the vehicle"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Pricing Details</h4>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-4">
+                  <label for="product-price" class="form-label">Price</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text fs-20"><i class='bx bx-dollar'></i></span>
+                    <input name="price" type="number" id="product-price" class="form-control" placeholder="0.00" required>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <label for="product-tax" class="form-label">Tax (%)</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text fs-20"><i class='bx bxs-file-txt'></i></span>
+                    <input name="tax" type="number" id="product-tax" class="form-control" placeholder="0.00%">
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3">
+                    <label for="product-checkup" class="form-label">Checkup</label>
+                    <input name="checkup" type="number" id="product-checkup" class="form-control" placeholder="Checkup Price">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 bg-light mb-3 rounded">
+            <div class="row justify-content-end g-2">
+              <div class="col-lg-2">
+                <button type="submit" class="btn btn-outline-secondary w-100">Create Vehicle</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- End Container Fluid -->
+</div>
+<!-- ==================================================== -->
+<!-- End Page Content -->
+<!-- ==================================================== -->
+
+<%- include('./partials/footer') %>
+<script>
+  document.querySelector(".registration-date").flatpickr();
+</script>

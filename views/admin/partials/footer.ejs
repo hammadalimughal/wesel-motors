@@ -1,0 +1,250 @@
+</div>
+<!-- END Wrapper -->
+
+<script src="/demo-custom/car-project/admin/assets/js/jquery-3.6.0.min.js"></script>
+<!-- Vendor Javascript (Require in all Page) -->
+<script src="/demo-custom/car-project/admin/assets/js/vendor.js"></script>
+
+<!-- App Javascript (Require in all Page) -->
+<script src="/demo-custom/car-project/admin/assets/js/app.js"></script>
+
+<!-- Vector Map Js -->
+<script src="/demo-custom/car-project/admin/assets/vendor/jsvectormap/js/jsvectormap.min.js"></script>
+<script src="/demo-custom/car-project/admin/assets/vendor/jsvectormap/maps/world-merc.js"></script>
+<script src="/demo-custom/car-project/admin/assets/vendor/jsvectormap/maps/world.js"></script>
+
+<!-- Dashboard Js -->
+<script src="/demo-custom/car-project/admin/assets/js/pages/dashboard.js"></script>
+
+<script>
+  $(".dropzone .image-upload").change(function () {
+    const input = this;
+    const files = this.files;
+    if (!files || files.length === 0) return;
+
+    const isMultiple = input.hasAttribute('multiple');
+    const $dropzone = $(input).parents('.dropzone');
+    const $previewContainer = $dropzone.find('.upload-preview');
+
+    if (!isMultiple) {
+      $previewContainer.find('.col-12').remove();
+    }
+
+    Array.from(files).forEach((file) => {
+      const xhr = new XMLHttpRequest();
+      const formData = new FormData();
+      formData.append('image', file);
+
+      xhr.open('POST', '/demo-custom/car-project/api/upload/image');
+
+      const progress = $('<div class="progress"></div>');
+      progress.html(`
+        <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      `);
+      $dropzone.append(progress);
+
+      xhr.upload.addEventListener('progress', function (e) {
+        if (e.lengthComputable) {
+          const percentComplete = Math.round((e.loaded / e.total) * 100);
+          progress.find('.progress-bar').css('width', `${percentComplete}%`).text(`${percentComplete}%`);
+        }
+      });
+
+      xhr.addEventListener('load', function () {
+        if (xhr.status === 200) {
+          const response = JSON.parse(xhr.responseText);
+          const imageUrl = response.imageUrl;
+
+          const $imageWrapper = $(`
+            <div class="col-12 col-lg-4 position-relative">
+              <img class="img-fluid" src="/demo-custom/car-project${imageUrl}" />
+              <button type="button" class="btn btn-sm btn-danger remove-image" style="position:absolute;top:5px;right:5px;">&times;</button>
+            </div>
+          `);
+
+          $previewContainer.append($imageWrapper);
+
+          const $hiddenInput = $(input).siblings('input[type="hidden"]');
+          if (!isMultiple) {
+            $hiddenInput.val(imageUrl);
+          } else {
+            try {
+              let urls = JSON.parse($hiddenInput.val() || '[]');
+              urls.push(imageUrl);
+              $hiddenInput.val(JSON.stringify(urls));
+            } catch (e) {
+              console.error("Failed to update hidden input for multiple images.");
+            }
+          }
+
+          $imageWrapper.find('.remove-image').on('click', function () {
+            $imageWrapper.remove();
+
+            if (isMultiple) {
+              try {
+                let urls = JSON.parse($hiddenInput.val() || '[]');
+                urls = urls.filter(url => url !== imageUrl);
+                $hiddenInput.val(JSON.stringify(urls));
+              } catch (e) {
+                console.error("Error updating hidden input on image removal.");
+              }
+            } else {
+              $hiddenInput.val('');
+            }
+          });
+
+          setTimeout(() => progress.remove(), 1000);
+        } else {
+          progress.find('.progress-bar').text('Upload failed.');
+          setTimeout(() => progress.remove(), 2000);
+        }
+      });
+
+      xhr.addEventListener('error', function () {
+        progress.find('.progress-bar').text('Upload failed.');
+        setTimeout(() => progress.remove(), 2000);
+        alert('An error occurred during the upload.');
+      });
+
+      xhr.send(formData);
+    });
+  });
+</script>
+
+<script>
+  $(".dropzone .video-upload").change(function() {
+    const file = this.files[0];
+    if (!file) return;
+    const input = this
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append('video', file);
+
+    xhr.open('POST', '/demo-custom/car-project/api/upload/video'); // Replace with your actual upload URL
+
+    // Progress event listener
+    const progress = document.createElement('div')
+    $(progress).addClass('progress')
+    $(progress).html(`<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>`)
+    $(input).parents('.dropzone').append(progress)
+    xhr.upload.addEventListener('progress', function(e) {
+      if (e.lengthComputable) {
+        const percentComplete = (e.loaded / e.total) * 100;
+        $(progress).children().css({
+          width: `${percentComplete}%`
+        })
+        $(progress).children().html(`${percentComplete}%`)
+      }
+    });
+
+    // Load event
+    xhr.addEventListener('load', function() {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        const videoUrl = response.videoUrl;
+        // alert('Upload complete!');
+        if ($(input).parents('.dropzone').find('video').length > 0) {
+          $(input).parents('.dropzone').find('video').remove()
+        }
+        $(input).parents('.dropzone').append(`<video loop autoplay muted>
+                      <source src="${videoUrl}" type="video/mp4">
+                    </video>`)
+        $(input).siblings().val(videoUrl)
+        setTimeout(() => {
+          $(progress).remove()
+        }, 1000);
+      } else {
+        $(progress).children().html('Upload failed.')
+        alert('Upload failed.');
+        setTimeout(() => {
+          $(progress).remove()
+        }, 2000);
+      }
+    });
+
+    // Error handling
+    xhr.addEventListener('error', function() {
+      $(progress).children().html('Upload failed.')
+      setTimeout(() => {
+        $(progress).remove()
+      }, 2000);
+      alert('An error occurred during the upload.');
+    });
+
+    xhr.send(formData);
+  })
+</script>
+<script>
+  $(".dropzone .document-upload").change(function() {
+    const file = this.files[0];
+    if (!file) return;
+    const input = this
+    const xhr = new XMLHttpRequest();
+    const formData = new FormData();
+    formData.append('document', file);
+
+    xhr.open('POST', '/demo-custom/car-project/api/upload/document'); // Replace with your actual upload URL
+
+    // Progress event listener
+    const progress = document.createElement('div')
+    $(progress).addClass('progress')
+    $(progress).html(`<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>`)
+    $(input).parents('.dropzone').append(progress)
+    xhr.upload.addEventListener('progress', function(e) {
+      if (e.lengthComputable) {
+        const percentComplete = (e.loaded / e.total) * 100;
+        $(progress).children().css({
+          width: `${percentComplete}%`
+        })
+        $(progress).children().html(`${percentComplete}%`)
+      }
+    });
+
+    // Load event
+    xhr.addEventListener('load', function() {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        const documentUrl = response.documentUrl;
+        // alert('Upload complete!');
+        if ($(input).parents('.dropzone').find('object').length > 0) {
+          $(input).parents('.dropzone').find('object').remove()
+        }
+        $(input).parents('.dropzone').append(`<object data="${documentUrl}" type="application/pdf">
+                        <p>Your browser does not support PDFs.
+                          <a href="${documentUrl}" target="_blank">Download the PDF</a>.
+                        </p>
+                      </object>`)
+        $(input).siblings().val(documentUrl)
+        setTimeout(() => {
+          $(progress).remove()
+        }, 1000);
+      } else {
+        $(progress).children().html('Upload failed.')
+        alert('Upload failed.');
+        setTimeout(() => {
+          $(progress).remove()
+        }, 2000);
+      }
+    });
+
+    // Error handling
+    xhr.addEventListener('error', function() {
+      $(progress).children().html('Upload failed.')
+      setTimeout(() => {
+        $(progress).remove()
+      }, 2000);
+      alert('An error occurred during the upload.');
+    });
+
+    xhr.send(formData);
+  })
+</script>
+
+</body>
+
+
+<!-- Mirrored from techzaa.in/larkon/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 01 May 2025 22:51:39 GMT -->
+
+</html>

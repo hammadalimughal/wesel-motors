@@ -1,0 +1,548 @@
+<%- include('./includes/header') %>
+<main>
+    <style>
+    .main-points ul li span {
+        font-size: 16px;
+    }
+    </style>
+    <section class="bannerst">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner-text">
+                        <div class="main-hosting">
+                            <a href="index.html">Home</a><span><i class="fa-solid fa-chevron-right"></i></span>
+                            <h6>inventory</h6>
+
+                        </div>
+
+                        <h2>Inventory</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-slide products-sec">
+        <div class="container">
+            <div class="row pt-2 pb-5">
+                <!-- <div class="col-12 col-md-3">
+
+                    <div class="main-types">
+                        <h2>TYPES</h2>
+                        <ul>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>HATCHBACK</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span>VAN
+                                    7</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>SUV</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>CABRIO</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span class="checkmark"></span>VAN
+                                    9</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>SEDAN</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="main-types">
+                        <h2>MANUFACTURERS</h2>
+                        <ul>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>PEUGEOT</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>OPEL</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>LAND ROVER</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>FIAT</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>RENAULT</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>HYUNDAI</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>VOLKSWAGEN</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>NISSAN</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>MINI</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>DACIA</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>CITROEN</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>KIA</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="main-types">
+                        <h2>CAPACITY</h2>
+                        <ul>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>4</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>5</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>7</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>9</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="main-types">
+                        <h2>OPERATING SYSTEM</h2>
+                        <ul>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>Automatic</label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox"><span
+                                        class="checkmark"></span>Manual</label></li>
+                        </ul>
+                        <button class="filter-button">Apply Filters</button>
+                    </div>
+
+                </div> -->
+                <div class="col-12 col-md-12">
+                    <section class="car-cards">
+                        <h2>Select Your Dream Car</h2>
+                        <ul class="list-find">
+
+
+                            <li>
+                                <div class="dropdown">
+                                    <button class=" dropdown-toggle" type="button" id="dropdownButton"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Make
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+                                        <li><a class="dropdown-item dropdown-check" href="#">SsangYong
+
+                                            </a></li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">Subaru
+                                            </a></li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">
+                                                Suzuki</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class=" dropdown-toggle" type="button" id="dropdownButton"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Model
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+                                        <li><a class="dropdown-item dropdown-check" href="#">Any</a></li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">
+                                                Across</a></li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">Alto</a>
+                                        </li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">
+                                                Baleno</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class=" dropdown-toggle" type="button" id="dropdownButton"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Body type
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+                                        <li><a class="dropdown-item dropdown-check" href="#">Estate</a></li>
+                                        <li><a class="dropdown-item dropdown-check" href="#">Hatchback</a></li>
+
+                            </li>
+                        </ul>
+                </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Budget
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+
+                            <div class="chip-dropdown__options">
+                                <div>
+                                    <div>
+                                        <div class="search-filters__range">
+                                            <div class="range-dropdown"><label><span class="form-input-label">Minimum
+                                                        price</span>
+                                                    <div class="select input-full-width"><select>
+                                                            <option value="0">Any</option>
+                                                            <option value="1">£3,500</option>
+                                                            <option value="2">£4,000</option>
+                                                            <option value="3">£5,000</option>
+                                                            <option value="4">£6,000</option>
+                                                            <option value="5">£7,000</option>
+                                                            <option value="6">£8,000</option>
+                                                            <option value="7">£9,000</option>
+                                                            <option value="8">£10,000</option>
+                                                            <option value="9">£11,000</option>
+                                                            <option value="10">£12,000</option>
+                                                            <option value="11">£13,000</option>
+                                                            <option value="12">£14,000</option>
+                                                            <option value="13">£15,000</option>
+                                                            <option value="14">£16,000</option>
+                                                            <option value="15">£17,000</option>
+                                                            <option value="16">£18,000</option>
+                                                            <option value="17">£19,000</option>
+                                                            <option value="18">£20,000</option>
+                                                            <option value="19">£25,000</option>
+                                                        </select></div>
+                                                </label></div>
+                                            <div class="range-dropdown"><label><span class="form-input-label">Maximum
+                                                        price</span>
+                                                    <div class="select input-full-width"><select>
+                                                            <option value="9">£11,000</option>
+                                                            <option value="10">£12,000</option>
+                                                            <option value="11">£13,000</option>
+                                                            <option value="12">£14,000</option>
+                                                            <option value="13">£15,000</option>
+                                                            <option value="14">£16,000</option>
+                                                            <option value="15">£17,000</option>
+                                                            <option value="16">£18,000</option>
+                                                            <option value="17">£19,000</option>
+                                                            <option value="18">£20,000</option>
+                                                            <option value="19">£25,000</option>
+                                                            <option value="20">£30,000</option>
+                                                            <option value="21">£35,000</option>
+                                                            <option value="22">£40,000</option>
+                                                            <option value="23">£45,000</option>
+                                                            <option value="24">£50,000</option>
+                                                            <option value="25">£60,000</option>
+                                                            <option value="26">£70,000</option>
+                                                            <option value="27">£80,000</option>
+                                                            <option value="28">£90,000</option>
+                                                            <option value="29">£100,000</option>
+                                                            <option value="30">£120,000</option>
+                                                            <option value="31">£150,000</option>
+                                                        </select></div>
+                                                </label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Gearbox
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+                            <li><a class="dropdown-item dropdown-check" href="#">Automatic</a></li>
+                            <li><a class="dropdown-item dropdown-check" href="#">
+                                    Manual</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="dropdown">
+                        <button class=" dropdown-toggle" type="button" id="dropdownButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Fuel
+
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownButton">
+                            <li><a class="dropdown-item dropdown-check" href="#">Diesel</a></li>
+                            <li><a class="dropdown-item dropdown-check" href="#">Hybrid</a></li>
+                            <li><a class="dropdown-item dropdown-check" href="#">Petrol</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li>
+                    <span>clear All</span>
+                </li>
+
+                </ul>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+
+                            <a href="cart.php">
+
+                                <div class="main-card-car">
+                                    <img src="/demo-custom/car-project/images/car-images/car-1.png" class="img-fluid" alt="img">
+                                    <h3>Mercedes Benz C Class</h3>
+                                    <div class="main-points">
+                                        <ul>
+                                            <li>
+                                                <span>89,569 miles</span>
+                                            </li>
+                                            <li>
+                                                <span>Petrol</span>
+                                            </li>
+                                            <li>
+                                                <span>1.8 L</span>
+                                            </li>
+
+                                            <li>
+                                                <span>Automatic</span>
+                                            </li>
+                                            <li>
+                                                <span>Coupe</span>
+                                            </li>
+                                            <li>
+                                                <span>2003 (52) Reg</span>
+                                            </li>
+                                        </ul>
+                                        <h3>£ 2,495</h3>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <a href="cart.php">
+                                <div class="main-card-car">
+                                    <img src="/demo-custom/car-project/images/car-images/car-2.png" class="img-fluid" alt="img">
+                                    <h3>Mercedes Benz B Class</h3>
+                                    <div class="main-points">
+                                        <ul>
+                                            <li>
+                                                <span>121,363 miles</span>
+                                            </li>
+                                            <li>
+                                                <span>Diesel</span>
+                                            </li>
+                                            <li>
+                                                <span>1.8 L</span>
+                                            </li>
+
+                                            <li>
+                                                <span>Automatic</span>
+                                            </li>
+                                            <li>
+                                                <span>MPV</span>
+                                            </li>
+                                            <li>
+                                                <span>2012 (62) Reg</span>
+                                            </li>
+                                        </ul>
+                                        <h3>£ 4,995</h3>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <a href="cart.php">
+                                <div class="main-card-car">
+                                    <img src="/demo-custom/car-project/images/car-images/car-3.png" class="img-fluid" alt="img">
+                                    <h3>Mercedes Benz A Class</h3>
+                                    <div class="main-points">
+                                        <ul>
+                                            <li>
+                                                <span>111,703 miles</span>
+                                            </li>
+                                            <li>
+                                                <span>Petrol</span>
+                                            </li>
+                                            <li>
+                                                <span>1.6 L</span>
+                                            </li>
+
+                                            <li>
+                                                <span>Manual</span>
+                                            </li>
+                                            <li>
+                                                <span>Hatchback</span>
+                                            </li>
+                                            <li>
+                                                <span>2012 (62) Reg</span>
+                                            </li>
+                                        </ul>
+                                        <h3>£ 6,195</h3>
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+
+                        <div class="col-12 col-md-4">
+                            <div class="main-card-car">
+                                <img src="/demo-custom/car-project/images/car-images/car-1.png" class="img-fluid" alt="img">
+                                <h3>Mercedes Benz C Class</h3>
+                                <div class="main-points">
+                                    <ul>
+                                        <li>
+                                            <span>89,569 miles</span>
+                                        </li>
+                                        <li>
+                                            <span>Petrol</span>
+                                        </li>
+                                        <li>
+                                            <span>1.8 L</span>
+                                        </li>
+
+                                        <li>
+                                            <span>Automatic</span>
+                                        </li>
+                                        <li>
+                                            <span>Coupe</span>
+                                        </li>
+                                        <li>
+                                            <span>2003 (52) Reg</span>
+                                        </li>
+                                    </ul>
+                                    <h3>£ 2,495</h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="main-card-car">
+                                <img src="/demo-custom/car-project/images/car-images/car-2.png" class="img-fluid" alt="img">
+                                <h3>Mercedes Benz B Class</h3>
+                                <div class="main-points">
+                                    <ul>
+                                        <li>
+                                            <span>121,363 miles</span>
+                                        </li>
+                                        <li>
+                                            <span>Diesel</span>
+                                        </li>
+                                        <li>
+                                            <span>1.8 L</span>
+                                        </li>
+
+                                        <li>
+                                            <span>Automatic</span>
+                                        </li>
+                                        <li>
+                                            <span>MPV</span>
+                                        </li>
+                                        <li>
+                                            <span>2012 (62) Reg</span>
+                                        </li>
+                                    </ul>
+                                    <h3>£ 4,995</h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <div class="main-card-car">
+                                <img src="/demo-custom/car-project/images/car-images/car-3.png" class="img-fluid" alt="img">
+                                <h3>Mercedes Benz A Class</h3>
+                                <div class="main-points">
+                                    <ul>
+                                        <li>
+                                            <span>111,703 miles</span>
+                                        </li>
+                                        <li>
+                                            <span>Petrol</span>
+                                        </li>
+                                        <li>
+                                            <span>1.6 L</span>
+                                        </li>
+
+                                        <li>
+                                            <span>Manual</span>
+                                        </li>
+                                        <li>
+                                            <span>Hatchback</span>
+                                        </li>
+                                        <li>
+                                            <span>2012 (62) Reg</span>
+                                        </li>
+                                    </ul>
+                                    <h3>£ 6,195</h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <button class="card-btn">Load More</button>
+                    </div>
+                </div>
+    </section>
+
+
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <section class="from-sec">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-6">
+                    <div class="main-cont">
+                        <img src="/demo-custom/car-project/images/form-sec.png" class="img-fluid" alt="img">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="main-texture">
+                        <h2>Get In Touch</h2>
+                        <form action="">
+                            <ul>
+                                <li>
+                                    <span>First Name</span><br>
+                                    <input type="text" placeholder="Enter Your First Name...">
+                                </li>
+                                <li>
+                                    <span>Last Name</span><br>
+                                    <input type="text" placeholder="Enter Your Last Name...">
+                                </li>
+                            </ul>
+                            <div class="main-looper">
+                                <label>
+                                    Email Address
+                                </label>
+                                <br>
+                                <input type="email" placeholder="Enter Your Email...">
+                            </div>
+                            <div class="main-looper">
+                                <label>
+                                    Phone Number
+                                </label>
+                                <br>
+                                <input type="number" placeholder="Enter Your Number...">
+                            </div>
+                            <div class="main-looper">
+                                <label>
+                                    Message
+                                </label>
+                                <br>
+                                <textarea name="text" id="" placeholder="Enter Your message..."></textarea>
+                            </div>
+                            <button class="submit-mention">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        const button = dropdown.querySelector('.dropdown-toggle');
+        const items = dropdown.querySelectorAll('.dropdown-check');
+
+        items.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Update button text
+                button.textContent = this.textContent;
+
+                // Remove active from all items in this dropdown
+                items.forEach(el => el.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+    </script>
+
+    <%- include('./includes/footer') %>
+</main>

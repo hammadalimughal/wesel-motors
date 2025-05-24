@@ -1,0 +1,336 @@
+<%- include('./includes/header') %>
+<main>
+  <style>
+
+  </style>
+  <section class="banner">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-xl-10-custom">
+          <div class="main-filter">
+            <ul class=" banner-ul">
+              <li>
+                <label>Make</label>
+                <input type="text" placeholder="Select Your Make">
+                <img src="/demo-custom/car-project/images/footer-icon/gis_car.png" class="img-fluid" alt="img">
+              </li>
+              <li>
+                <label>Model</label>
+                <input type="text" placeholder="Select Your Model">
+                <img src="/demo-custom/car-project/images/footer-icon/gis_car.png" class="img-fluid" alt="img">
+              </li>
+              <li>
+                <label>Min Price - Max Price</label>
+                <ul>
+
+              </li>
+              <li>
+                <p>
+                  <label for="amount">Price range:</label>
+                  <input type="text" id="amount" readonly="">
+                </p>
+
+                <div id="slider-range"></div>
+              </li>
+
+            </ul>
+            </li>
+
+            <li>
+              <button><span><i class="fa-solid fa-magnifying-glass gradient-icon"></i></span></button>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="car-profiles">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6">
+          <div class="main-heading-profiles">
+            <h2>The Best Car Sellers In Your Town</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+              been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+              galley of type and scrambled it to make a type specimen book. It has survived not only five
+              centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+              been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+              galley of type and scrambled it to make a type specimen book. It has survived not only five
+              centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            </p>
+
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="main-image-car">
+            <img src="/demo-custom/car-project/images/back-car.png" class="img-fluid" alt="img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="car-cards">
+    <div class="container">
+      <div class="row">
+        <h2>Our Vehicles</h2>
+        <% vehicles.forEach(vehicle => { %>
+        <div class="col-12 col-md-4">
+          <div class="main-card-car">
+            <img src="/demo-custom/car-project<%= vehicle.thumbnail %>" class="img-fluid" alt="img">
+            <h3><%= vehicle.title %></h3>
+            <div class="main-points">
+              <ul>
+                <li>
+                  <span><%= vehicle.mileage %> miles</span>
+                </li>
+                <li>
+                  <span><%= vehicle.fuelType %></span>
+                </li>
+                <li>
+                  <span><%= vehicle.engineSize %></span>
+                </li>
+
+                <li>
+                  <span><%= vehicle.gearbox %></span>
+                </li>
+                <li>
+                  <span><%= vehicle.bodyType %></span>
+                </li>
+                <li>
+                  <span><%= vehicle.registrationDate %></span>
+                </li>
+              </ul>
+              <h3>£ <%= vehicle.price %></h3>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+      <div class="text-center">
+          <button class="card-btn mx-auto">Load More</button>
+      </div>
+    </div>
+  </section>
+  <section class="testitmoinals">
+    <div class="container">
+      <div class="row">
+        <h2 class="mention0h2">See What Customers Say</h2>
+        <div class="owl-carousel owl-theme theme-slider">
+          <div class="item">
+
+            <div class="main-testi">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has
+                been the industry's standard dummy text ever since the 1500s.</p>
+              <div class="main-fulder">
+
+                <img src="/demo-custom/car-project/images/testimonials/icons-1.png" class="img-fluid" alt="img">
+                <ul>
+
+                  <li><span class="testimonails-name">Sarah Mitchell</span></li>
+                  <li><span>Fitness Coach</span></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+
+            <div class="main-testi">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has
+                been the industry's standard dummy text ever since the 1500s.</p>
+              <div class="main-fulder">
+
+                <img src="/demo-custom/car-project/images/testimonials/icons-2.png" class="img-fluid" alt="img">
+                <ul>
+
+                  <li><span class="testimonails-name">James Carter</span></li>
+                  <li><span>Entrepreneur</span></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+
+            <div class="main-testi">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has
+                been the industry's standard dummy text ever since the 1500s.</p>
+              <div class="main-fulder">
+
+                <img src="/demo-custom/car-project/images/testimonials/icons-3.png" class="img-fluid" alt="img">
+                <ul>
+
+                  <li><span class="testimonails-name">Emily Rodriguez</span></li>
+                  <li><span>Teacher</span></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+
+            <div class="main-testi">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has
+                been the industry's standard dummy text ever since the 1500s.</p>
+              <div class="main-fulder">
+
+                <img src="/demo-custom/car-project/images/testimonials/icons-1.png" class="img-fluid" alt="img">
+                <ul>
+
+                  <li><span class="testimonails-name">Sarah Mitchell</span></li>
+                  <li><span>Fitness Coach</span></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+          <div class="item">
+
+            <div class="main-testi">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                Ipsum has
+                been the industry's standard dummy text ever since the 1500s.</p>
+              <div class="main-fulder">
+
+                <img src="/demo-custom/car-project/images/testimonials/icons-1.png" class="img-fluid" alt="img">
+                <ul>
+
+                  <li><span class="testimonails-name">Sarah Mitchell</span></li>
+                  <li><span>Fitness Coach</span></li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="main-faqs">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-12">
+          <h2 class="theme-h2">Your questions answered</h2>
+          <div class="accordion" id="accordionExample">
+
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  When is the best time to buy a used car?
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  here’s no fixed best time to buy a used car, but there are a couple of trends you
+                  should be aware of.
+
+                  New cars are released in March and September, with many buyers trading their current
+                  car in. This means there tends to be more choice of used cars around this time, and
+                  there can be reduced prices as sellers compete.
+
+                  Less in-demand models may have further price reduction in April and October, when
+                  sellers are keen to shift their unsold cars.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Can I test drive a used car?
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Test-driving is a great way to make sure a car meets your needs, and that it’s in a
+                  good condition. You can arrange a test drive when you contact the seller on Auto
+                  Trader.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  Can a used car be returned?
+                </button>
+              </h2>
+              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                  Test-driving is a great way to make sure a car meets your needs, and that it’s in a
+                  good condition. You can arrange a test drive when you contact the seller on Auto
+                  Trader.
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="from-sec">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6">
+          <div class="main-cont">
+            <img src="/demo-custom/car-project/images/form-sec.png" class="img-fluid" alt="img">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="main-texture">
+            <h2>Get In Touch</h2>
+            <form action="">
+              <ul>
+                <li>
+                  <span>First Name</span><br>
+                  <input type="text" placeholder="Enter Your First Name...">
+                </li>
+                <li>
+                  <span>Last Name</span><br>
+                  <input type="text" placeholder="Enter Your Last Name...">
+                </li>
+              </ul>
+              <div class="main-looper">
+                <label>
+                  Email Address
+                </label>
+                <br>
+                <input type="email" placeholder="Enter Your Email...">
+              </div>
+              <div class="main-looper">
+                <label>
+                  Phone Number
+                </label>
+                <br>
+                <input type="number" placeholder="Enter Your Number...">
+              </div>
+              <div class="main-looper">
+                <label>
+                  Message
+                </label>
+                <br>
+                <textarea name="text" id="" placeholder="Enter Your message..."></textarea>
+              </div>
+              <button class="submit-mention">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+
+  </script>
+
+  <%- include('./includes/footer') %>
+</main>
