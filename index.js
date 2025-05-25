@@ -30,6 +30,13 @@ app.get('/demo-custom/car-project/car', async (req, res) => {
     res.render('car', { vehicles })
 });
 
+app.get('/demo-custom/car-project/car/:url', async (req, res) => {
+    const { url } = req.params
+    const vehicle = await Vehicle.findOne({ url }).populate('categories')
+    console.log('vehicle',vehicle)
+    res.render('car-detail', { vehicle })
+});
+
 app.get('/demo-custom/car-project/contact', (req, res) => {
     res.render('contact')
 });

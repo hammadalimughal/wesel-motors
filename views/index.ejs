@@ -1,4 +1,4 @@
-<%- include('./includes/header') %>
+<%- include('./includes/header', {title: 'Wesel Motors'}) %>
 <main>
   <style>
 
@@ -80,8 +80,10 @@
         <% vehicles.forEach(vehicle => { %>
         <div class="col-12 col-md-4">
           <div class="main-card-car">
-            <img src="/demo-custom/car-project<%= vehicle.thumbnail %>" class="img-fluid" alt="img">
-            <h3><%= vehicle.title %></h3>
+            <a href="/demo-custom/car-project/car/<%- vehicle.url %>">
+              <img src="/demo-custom/car-project<%= vehicle.thumbnail %>" class="img-fluid" alt="img">
+            </a>
+            <h3><a href="/demo-custom/car-project/car/<%- vehicle.url %>"><%= vehicle.title %></a></h3>
             <div class="main-points">
               <ul>
                 <li>

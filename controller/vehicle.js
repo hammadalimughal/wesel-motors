@@ -5,7 +5,12 @@ const router = express.Router()
 router.post('/create', async (req, res) => {
     // return res.json({ success: true, data: req.body })
     var { thumbnail, images, title, categories, registrationDate, fuelType, model, manufacturer, range, gearbox, seats, serviceHistory, bodyType, description, price, tax, checkup } = req.body
-    console.log('req.body',req.body)
+    console.log('req.body', req.body)
+    try {
+        images = JSON.parse(images)
+    } catch (error) {
+        images = []
+    }
     // var { title, description, model, oem, itemNo, price, stock, sku, tax, image, categories } = req.body
     try {
         // Assuming you have a Vehicle model defined
